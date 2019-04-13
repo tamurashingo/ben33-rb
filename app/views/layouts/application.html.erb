@@ -10,6 +10,64 @@
   </head>
 
   <body>
+    <header class="navbar-fixed">
+      <nav class="#{@color} darken-1">
+        <div class="nav-wrapper container">
+          <a id="sidenav" href="#" data-target="slide-out" class="button-collapse sidenav-trigger show-on-large" data-turbolinks="false">
+            <i class="material-icons right">apps</i>
+          </a>
+          <a id="logo-container" class="brand-logo" href="/">
+            xxxx
+          </a>
+          <ul id="nav-mobile" class="right">
+            <li>
+              <a href="/">Home</a>
+            </li>
+            <li>
+              <a href="/posts">
+                <span>Posts</span>
+                <span class="new badge">4</span>
+              </a>
+            </li>
+            <li>
+              <a href="/components">
+                Components
+              </a>
+            </li>
+            <li>
+              <a href="/javascript">
+                Javascript
+              </a>
+            </li>
+            <li>
+              <a href="/forms">
+                Forms
+              </a>
+            </li>
+            <!--Dropdown Trigger-->
+            <% if user_signed_in? %>
+              <li>
+                <a class="dropdown-button" data-target="dropdown1" href="#!">
+                  <span><%= current_user.email %></span>
+                  <i class="material-icons right">arrow_drop_down</i>
+                </a>
+              </li>
+            <% else %>
+              <li>
+                <%= link_to (t :sign_in), new_user_session_url %>
+              </li>
+            <% end %>
+          </ul>
+          <% if user_signed_in? %>
+            <ul>
+              aa
+            </ul>
+          <% end %>
+        </div>
+      </nav>
+    </header>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
     <%= yield %>
   </body>
 </html>
